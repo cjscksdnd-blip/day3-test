@@ -4,6 +4,7 @@ import ChatWindow from './components/ChatWindow';
 import ChatInput from './components/ChatInput';
 import QuickButtons from './components/QuickButtons';
 import Sidebar from './components/Sidebar';
+import LeftSidebar from './components/LeftSidebar';
 import { sendMessageToGPT, saveChatHistory, getChatHistory, analyzeUserProfile } from './api/chatApi';
 import './App.css';
 
@@ -99,6 +100,7 @@ function App() {
     <div className="app-container">
       <Header onLogoClick={handleLogoClick} />
       <main className="chat-layout">
+        <LeftSidebar />
         <div className="chat-main">
           <div className="chat-card">
             <ChatWindow messages={messages} isLoading={isLoading} />
