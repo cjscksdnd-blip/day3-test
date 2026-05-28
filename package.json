@@ -2,6 +2,7 @@
   "name": "day3-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://cjscksdnd-blip.github.io/day3-test",
   "dependencies": {
     "@supabase/supabase-js": "^2.106.2",
     "@testing-library/dom": "^10.4.1",
@@ -15,6 +16,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -39,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "playwright": "^1.60.0"
   }
 }
