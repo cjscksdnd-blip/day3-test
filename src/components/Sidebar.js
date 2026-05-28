@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CharacterImage from './CharacterImage';
 import './Sidebar.css';
 
 function groupByDate(rows) {
@@ -59,20 +60,23 @@ function Sidebar({ historyRows, messages, onAnalyzeProfile, profile, isAnalyzing
           )
         ) : (
           <div className="profile-section">
+            <div className="char-container">
+              <CharacterImage level={profile?.level} />
+            </div>
+
             {!profile ? (
               <>
                 <div className="profile-intro">
-                  <div className="profile-intro-icon">🤖</div>
-                  <p>AI가 대화를 분석해서<br />나의 건강 상태를 파악해드려요</p>
+                  <p>지금까지의 대화 기록을 분석해서<br />나의 건강 상태를 파악해드려요</p>
                 </div>
                 <button
                   className="analyze-btn"
                   onClick={onAnalyzeProfile}
-                  disabled={isAnalyzing || messages.length === 0}
+                  disabled={isAnalyzing || historyRows.length === 0}
                 >
                   {isAnalyzing ? '⏳ 분석 중...' : '🔍 상태 분석하기'}
                 </button>
-                {messages.length === 0 && (
+                {historyRows.length === 0 && (
                   <p className="analyze-hint">먼저 대화를 시작해주세요</p>
                 )}
               </>
@@ -112,7 +116,7 @@ function Sidebar({ historyRows, messages, onAnalyzeProfile, profile, isAnalyzing
                     </div>
                   )}
                   {profile.summary && (
-                    <div className="profile-summary">{profile.summary}</div>
+                    <div className="profile-summary">"{profile.summary}"</div>
                   )}
                 </div>
                 <button

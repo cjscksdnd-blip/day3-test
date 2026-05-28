@@ -108,6 +108,39 @@
   padding: 2px 4px;
 }
 
+/* 캐릭터 */
+.char-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.char-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  border: 2px solid;
+  padding: 12px 16px 10px;
+  gap: 6px;
+  width: 150px;
+}
+
+.char-wrap svg {
+  width: 110px;
+  height: auto;
+}
+
+.char-label {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.char-desc {
+  font-size: 0.72rem;
+}
+
 /* 내 상태 프로필 */
 .profile-section {
   display: flex;

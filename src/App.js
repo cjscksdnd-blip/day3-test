@@ -79,10 +79,14 @@ function App() {
   };
 
   const handleAnalyzeProfile = async () => {
-    if (messages.length === 0) return;
+    if (historyRows.length === 0) return;
     setIsAnalyzing(true);
     try {
-      const result = await analyzeUserProfile(messages);
+      const allMessages = historyRows.flatMap((row) => [
+        { role: 'user', content: row.user_message },
+        { role: 'assistant', content: row.bot_message },
+      ]);
+      const result = await analyzeUserProfile(allMessages);
       setProfile(result);
     } catch (e) {
       console.error('프로필 분석 실패', e);
