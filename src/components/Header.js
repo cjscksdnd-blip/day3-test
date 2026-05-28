@@ -1,11 +1,12 @@
 import React from 'react';
 import './Header.css';
 
-function Header() {
+function Header({ onLogoClick }) {
   return (
     <header className="header">
       <div className="header-inner">
-        <div className="header-logo">
+        <div className="header-logo" onClick={onLogoClick} role="button" tabIndex={0}
+          onKeyDown={(e) => e.key === 'Enter' && onLogoClick()}>
           <span className="logo-icon">💪</span>
           <div>
             <h1 className="header-title">KDN 헬스 AI</h1>
